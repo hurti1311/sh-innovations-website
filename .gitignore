@@ -25,3 +25,6 @@ pnpm-debug.log*
 
 # Claude Code
 .claude/
+
+# Projekt-Notizen für Claude (lokal)
+CLAUDE.md

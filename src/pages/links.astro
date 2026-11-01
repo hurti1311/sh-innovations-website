@@ -1,0 +1,68 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const groups = [
+  {
+    title: 'Sicherheit',
+    links: [
+      { href: 'https://haveibeenpwned.com/', label: 'Have I Been Pwned', text: 'Prüfen, ob Ihre E-Mail-Adresse in einem Datenleck aufgetaucht ist.' },
+      { href: 'https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/verbraucherinnen-und-verbraucher_node.html', label: 'BSI für Bürger', text: 'Tipps des Bundesamts für Sicherheit in der Informationstechnik.' },
+      { href: 'https://www.heise.de/security/', label: 'heise Security', text: 'Aktuelle Nachrichten und Hintergründe zur IT-Sicherheit.' },
+    ],
+  },
+  {
+    title: 'HomeLab und Open Source',
+    links: [
+      { href: 'https://www.proxmox.com/', label: 'Proxmox', text: 'Virtualisierung für Server und HomeLab.' },
+      { href: 'https://www.debian.org/', label: 'Debian', text: 'Stabiles, freies Linux-Betriebssystem.' },
+      { href: 'https://adguard.com/de/adguard-home/overview.html', label: 'AdGuard Home', text: 'Werbe- und Trackerblocker für das ganze Netzwerk.' },
+      { href: 'https://pi-hole.net/', label: 'Pi-hole', text: 'DNS-Werbeblocker für das Heimnetz.' },
+      { href: 'https://www.home-assistant.io/', label: 'Home Assistant', text: 'Lokale Heimautomatisierung.' },
+      { href: 'https://www.wireguard.com/', label: 'WireGuard', text: 'Schnelles, modernes VPN.' },
+      { href: 'https://github.com/dani-garcia/vaultwarden', label: 'Vaultwarden', text: 'Selbst gehostete Passwortverwaltung.' },
+    ],
+  },
+  {
+    title: 'Fernwartung',
+    links: [
+      { href: 'https://www.teamviewer.com/de/download/', label: 'TeamViewer QuickSupport', text: 'Für die Hilfe aus der Ferne: Programm herunterladen, starten und mir die angezeigte ID und das Passwort nennen.' },
+    ],
+  },
+  {
+    title: 'Entwicklung',
+    links: [
+      { href: 'https://git-scm.com/', label: 'Git', text: 'Versionsverwaltung für Quellcode.' },
+      { href: 'https://astro.build/', label: 'Astro', text: 'Framework, mit dem diese Website gebaut ist.' },
+    ],
+  },
+];
+---
+
+<Layout title="Nützliche Links" description="Nützliche Links zu Sicherheit, HomeLab und Open Source.">
+  <section class="hero">
+    <div class="container">
+      <h1>Nützliche Links</h1>
+      <p class="lead">Eine kleine Auswahl nützlicher Seiten.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      {groups.map((g) => (
+        <h2>{g.title}</h2>
+        <div class="grid" style="margin-bottom:2rem">
+          {g.links.map((l) => (
+            <article class="card">
+              <h3><a href={l.href} target="_blank" rel="noopener noreferrer">{l.label}</a></h3>
+              <p>{l.text}</p>
+            </article>
+          ))}
+        </div>
+      ))}
+      <p class="note">
+        Dies sind externe Links. Mit dem Klick verlassen Sie diese Website. Für die Inhalte sind die jeweiligen
+        Betreiber verantwortlich.
+      </p>
+    </div>
+  </section>
+</Layout>
